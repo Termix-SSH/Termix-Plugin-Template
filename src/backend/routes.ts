@@ -1,7 +1,7 @@
 import type { Request, Response, Router } from "express";
 import { desc, eq } from "drizzle-orm";
 import type { BetterSQLite3Database } from "drizzle-orm/better-sqlite3";
-import type { PluginContext } from "@termix/plugin-sdk/backend";
+import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
 
 // The table object ctx.db.define hands back. Drizzle's own types are
 // per dialect, so the routes treat it loosely.

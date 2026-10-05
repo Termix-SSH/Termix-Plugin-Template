@@ -3,7 +3,7 @@ import {
   useTranslation,
   type TabProps,
   type TermixApp,
-} from "@termix/plugin-sdk/frontend";
+} from "@termix-ssh/plugin-sdk/frontend";
 
 const TAB_ID = "hello-world";
 

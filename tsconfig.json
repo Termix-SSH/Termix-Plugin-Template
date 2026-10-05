@@ -1,5 +1,5 @@
 {
-  "extends": "@termix/plugin-sdk/tsconfig.plugin.json",
+  "extends": "@termix-ssh/plugin-sdk/tsconfig.plugin.json",
   "compilerOptions": {
     "types": ["node", "vitest/globals"]
   },

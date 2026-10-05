@@ -4,7 +4,7 @@ import {
   refUser,
   text,
   timestamp,
-} from "@termix/plugin-sdk/db";
+} from "@termix-ssh/plugin-sdk/db";
 
 // Stored as p_hello_world_notes. The prefix comes from the plugin id.
 export const notes = defineTable(
