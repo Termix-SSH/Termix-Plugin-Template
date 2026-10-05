@@ -1,0 +1,49 @@
+{
+  "id": "hello-world",
+  "name": "Hello World",
+  "version": "1.0.0",
+  "description": "A minimal Termix plugin: one tab, one route, one setting and one table.",
+  "author": {
+    "name": "Your Name"
+  },
+  "license": "Apache-2.0",
+  "repository": "https://github.com/your-org/termix-plugin-hello-world",
+  "category": "Productivity",
+  "icon": "Hand",
+  "engine": {
+    "termix": ">=26.10.0",
+    "api": "1"
+  },
+  "capabilities": ["db:own", "network:serve", "ui:surface"],
+  "contributes": {
+    "tabs": [
+      {
+        "id": "hello-world",
+        "titleKey": "tab.title",
+        "icon": "Hand",
+        "openFrom": ["rail"]
+      }
+    ],
+    "permissions": [
+      {
+        "name": "use",
+        "titleKey": "permissions.use.title",
+        "descriptionKey": "permissions.use.description",
+        "defaultRoles": ["admin", "user"]
+      }
+    ],
+    "settings": {
+      "admin": [
+        {
+          "key": "greeting",
+          "type": "string",
+          "labelKey": "settings.admin.greeting.label",
+          "descriptionKey": "settings.admin.greeting.description",
+          "default": "Hello"
+        }
+      ]
+    }
+  },
+  "locales": "locales",
+  "platforms": ["linux", "win32", "darwin"]
+}

@@ -1,0 +1,7 @@
+{
+  "extends": "@termix/plugin-sdk/tsconfig.plugin.json",
+  "compilerOptions": {
+    "types": ["node", "vitest/globals"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "tests/**/*.ts", "tests/**/*.tsx"]
+}

@@ -1,0 +1,84 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Tag matches the manifest version
+        run: |
+          version=$(node -p "require('./manifest.json').version")
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match manifest version $version"
+            exit 1
+          fi
+
+      - name: Test
+        run: npx termix-plugin test
+
+      - name: Build
+        run: npx termix-plugin build
+
+      # Validate checks the files the manifest names, so it runs after build.
+      - name: Validate
+        run: npx termix-plugin validate
+
+      - name: Pack
+        run: npx termix-plugin pack --out release
+
+      - name: Sign
+        env:
+          TERMIX_PLUGIN_SIGNING_KEY: ${{ secrets.TERMIX_PLUGIN_SIGNING_KEY }}
+        run: npx termix-plugin sign release/*.tmxplug
+
+      - name: GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" release/*.tmxplug release/*.tmxplug.sig \
+            --title "$GITHUB_REF_NAME" --generate-notes
+
+      - name: Check out the registry
+        uses: actions/checkout@v4
+        with:
+          repository: Termix-SSH/Termix-Registry
+          token: ${{ secrets.REGISTRY_TOKEN }}
+          path: registry
+
+      - name: Open a registry pull request
+        env:
+          GH_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
+        run: |
+          id=$(node -p "require('./manifest.json').id")
+          version=$(node -p "require('./manifest.json').version")
+          file=$(ls release/*.tmxplug)
+          name=$(basename "$file")
+          url="https://github.com/$GITHUB_REPOSITORY/releases/download/$GITHUB_REF_NAME/$name"
+
+          node scripts/registry-entry.mjs registry/official/index.json "$file" "$url"
+
+          cd registry
+          branch="add-$id-$version"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add official/index.json
+          git commit -m "feat: add $id $version"
+          git push origin "$branch"
+          gh pr create --title "Add $id $version" \
+            --body "Release: https://github.com/$GITHUB_REPOSITORY/releases/tag/$GITHUB_REF_NAME"

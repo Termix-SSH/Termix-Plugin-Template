@@ -1,0 +1,23 @@
+{
+  "tab": {
+    "title": "Hello World",
+    "empty": "No notes yet.",
+    "placeholder": "Write a note",
+    "add": "Add",
+    "error": "Could not load notes."
+  },
+  "permissions": {
+    "use": {
+      "title": "Use Hello World",
+      "description": "Open the Hello World tab and keep notes in it."
+    }
+  },
+  "settings": {
+    "admin": {
+      "greeting": {
+        "label": "Greeting",
+        "description": "Shown at the top of the Hello World tab."
+      }
+    }
+  }
+}
