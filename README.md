@@ -34,7 +34,9 @@ Termix Plugin Template is a small Hello World plugin you can copy to start your 
 3. Declare every capability your code uses in `capabilities`. Termix refuses any call the manifest did not declare.
 4. Put every string the UI shows in `locales/en.json`.
 5. After changing `src/backend/tables.ts`, run `npm run migrations -- <short_name>`.
-6. To release, add the version to the top of `CHANGELOG.json` and push a tag like `v1.0.0`. The release workflow needs the `TERMIX_PLUGIN_SIGNING_KEY` and `TERMIX_PAT` org secrets.
+6. To release, bump `version` in `manifest.json` and `package.json`, add it to the top of `CHANGELOG.json` and push a tag like `v1.0.0`. To release the same version again from the current commit, run the Release workflow by hand. It replaces the release files.
+
+The CI and Release workflows call the shared ones in [Termix Registry](https://github.com/Termix-SSH/Termix-Registry). Release signs with the `TERMIX_PLUGIN_SIGNING_KEY` org secret and tells the registry with `TERMIX_PAT`, so it only works in the Termix-SSH organization, and the registry only lists repositories in its `sources.json`. Outside it, copy that workflow and sign with your own key.
 
 <br />
 
