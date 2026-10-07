@@ -1,0 +1,84 @@
+name: Bug report
+description: Something in this plugin is broken
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. This is a community plugin, so it is looked after by its own author and not the Termix team.
+
+        If you came from **Report an issue** in Termix, your versions and environment are already filled in below.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug. Screenshots help a lot.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: As few steps as you can.
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      description: What should have happened instead?
+    validations:
+      required: false
+  - type: input
+    id: termix-version
+    attributes:
+      label: Termix version
+      description: Shown in Settings under About, or in your User Profile.
+      placeholder: "e.g. 26.10.0"
+    validations:
+      required: true
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Plugin version
+      description: Shown on this plugin's page in the Plugins tab.
+      placeholder: "e.g. 1.0.0"
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser or app, OS, and how the server is installed.
+      placeholder: |
+        Web, Chrome on Windows. Server in Docker.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Errors from the browser console, `docker logs termix`, or the error Termix shows. This is shown as code, so no backticks needed.
+      render: text
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else?
+      description: Links, config, or anything that might help.
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched open and closed issues and this is not a duplicate
+          required: true
+        - label: I am on the latest version, or I said which version I am on
+          required: true
