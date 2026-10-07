@@ -31,6 +31,17 @@
 
 I really hope I remember to change this
 
+## Releasing
+
+Work happens on a `dev-X.Y.Z` branch made from `main`, named after the version it will ship as. `main` only changes when a release merges a dev branch into it.
+
+Run the **Release** workflow by hand from the dev branch:
+
+- **beta** publishes `X.Y.Z-beta.N` (N counts up on its own). Termix only offers it to people who turned on Beta versions for this plugin. Run it as often as you like.
+- **stable** releases `X.Y.Z`, merges the dev branch into `main`, deletes the dev branch and removes that version's beta releases. Add a `## X.Y.Z` section to `CHANGELOG.md` first, it becomes the release notes.
+- **overwrite** releases the manifest version again from the current commit, replacing its files.
+- **dry-run** builds and packs without publishing anything.
+
 ## Sponsors
 
 Interested in a paid placement to support development? Email [mail@termix.site](mailto:mail@termix.site).
