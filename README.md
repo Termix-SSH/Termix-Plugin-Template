@@ -102,4 +102,4 @@ Bugs and ideas for this plugin go in this repo's [issues](../../issues). Problem
 
 ## License
 
-Distributed under the Apache License Version 2.0. See [LICENSE](https://github.com/Termix-SSH/Termix/blob/main/LICENSE) for more information.
+Distributed under the Apache License Version 2.0. See [LICENSE](LICENSE) for more information.
