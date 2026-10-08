@@ -8,6 +8,7 @@
   },
   "license": "Apache-2.0",
   "repository": "https://github.com/your-org/termix-plugin-hello-world",
+  "docs": "https://github.com/your-org/termix-plugin-hello-world/tree/main/docs",
   "category": "Productivity",
   "icon": "Hand",
   "features": [
@@ -15,9 +16,10 @@
     "An admin setting",
     "A table of greetings"
   ],
+  "env": [],
   "engine": {
     "termix": ">=26.10.0",
-    "api": "1"
+    "api": "^1.2"
   },
   "capabilities": ["db:own", "network:serve", "ui:surface"],
   "contributes": {

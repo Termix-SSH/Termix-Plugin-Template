@@ -29,7 +29,34 @@
 
 ## Getting Started
 
-I really hope I remember to change this
+You need Node 24 and a Termix server you are an admin on. The full guide is at [docs.termix.site/develop](https://docs.termix.site/develop).
+
+1. Click **Use this template** on GitHub to make your own repo, then clone it.
+2. In `manifest.json`, change `id`, `name`, `description`, `author` and `repository`. The id is lowercase with dashes, like `my-plugin`. Rename `hello-world` in `locales/en.json`, the table name in `src/backend/tables.ts` and the migrations to match.
+3. Install the packages:
+
+   ```bash
+   npm install
+   ```
+
+4. In Termix, open **Settings**, then **General**, and turn on **Plugin developer mode**. Then make an API key under **Settings**, **API keys**.
+5. Build and install the plugin on your server. It rebuilds and reinstalls every time you save a file:
+
+   ```bash
+   npx termix-plugin dev --server http://localhost:30001 --key tmx_your_key
+   ```
+
+6. Run the tests and checks before you push:
+
+   ```bash
+   npm test
+   npm run typecheck
+   npm run validate
+   ```
+
+7. Write your docs in `docs/`. `docs/index.md` is the page people see first. Settings, permissions, environment variables and the API reference are added for you from `manifest.json` and the `@openapi` comments on your routes.
+
+When you change a table in `src/backend/tables.ts`, run `npm run migrations` to write the SQLite, PostgreSQL and MySQL migrations.
 
 ## Releasing
 
