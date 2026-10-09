@@ -18,7 +18,7 @@
   "devDependencies": {
     "@commitlint/cli": "^21.2.2",
     "@commitlint/config-conventional": "^21.2.0",
-    "@termix-ssh/plugin-sdk": "^1.0.4",
+    "@termix-ssh/plugin-sdk": "^1.0.5",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/react": "^16.3.3",
     "@types/better-sqlite3": "^9.6.0",
@@ -28,14 +28,17 @@
     "@types/react-dom": "^19.2.4",
     "better-sqlite3": "^13.0.3",
     "husky": "^9.1.7",
+    "i18next": "^26.4.2",
     "jsdom": "^30.0.1",
     "lint-staged": "^17.2.0",
     "prettier": "3.9.9",
+    "react-i18next": "^17.0.16",
+    "sonner": "^2.0.8",
     "typescript": "~6.0.3",
     "vitest": "^4.1.11"
   },
   "peerDependencies": {
-    "@termix-ssh/plugin-sdk": "^1.0.4",
+    "@termix-ssh/plugin-sdk": "^1.0.5",
     "drizzle-orm": "^0.45.2",
     "express": "^5.2.1",
     "react": "^19.2.8"
