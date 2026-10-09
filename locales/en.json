@@ -4,7 +4,7 @@
     "empty": "No notes yet.",
     "placeholder": "Write a note",
     "add": "Add",
-    "error": "Could not load notes."
+    "error": "Could not load or save notes."
   },
   "permissions": {
     "use": {

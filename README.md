@@ -19,10 +19,10 @@
 ## Features
 
 - A tab opened from the sidebar
-- Two API routes
+- Two API routes behind a permission
 - An admin setting
 - A table with migrations for SQLite, PostgreSQL and MySQL
-- A backend test
+- Backend and frontend tests
 - A release workflow that builds, signs and publishes to the [Termix Registry](https://github.com/Termix-SSH/Termix-Registry)
 
 <br />
@@ -32,11 +32,12 @@
 You need Node 24 and a Termix server you are an admin on. The full guide is at [docs.termix.site/develop](https://docs.termix.site/develop).
 
 1. Click **Use this template** on GitHub to make your own repo, then clone it.
-2. In `manifest.json`, change `id`, `name`, `description`, `author` and `repository`. The id is lowercase with dashes, like `my-plugin`. Rename `hello-world` in `locales/en.json`, the table name in `src/backend/tables.ts` and the migrations to match.
-3. Install the packages:
+2. In `manifest.json`, change `id`, `name`, `description`, `author`, `repository` and `docs`. The id is lowercase with dashes, like `my-plugin`. Then search the repo for `hello-world`, `hello_world` and `Hello World` and rename them to match: `package.json`, `locales/en.json`, the index name in `src/backend/tables.ts`, the API paths in `src/backend/routes.ts`, the tab id in `src/frontend/index.tsx` and the tests.
+3. Install the packages, then delete `migrations/` and write it again for your id:
 
    ```bash
    npm install
+   npm run migrations
    ```
 
 4. In Termix, open **Settings**, then **General**, and turn on **Plugin developer mode**. Then make an API key under **Settings**, **API keys**.
@@ -52,11 +53,12 @@ You need Node 24 and a Termix server you are an admin on. The full guide is at [
    npm test
    npm run typecheck
    npm run validate
+   npm run build
    ```
 
 7. Write your docs in `docs/`. `docs/index.md` is the page people see first. Settings, permissions, environment variables and the API reference are added for you from `manifest.json` and the `@openapi` comments on your routes.
 
-When you change a table in `src/backend/tables.ts`, run `npm run migrations` to write the SQLite, PostgreSQL and MySQL migrations.
+When you change a table in `src/backend/tables.ts`, run `npm run migrations` to write the SQLite, PostgreSQL and MySQL migrations. `npm run pack` writes `<id>-<version>.tmxplug` of the built plugin, which you can install from a file in the Plugins tab while developer mode is on.
 
 ## Releasing
 
@@ -123,7 +125,11 @@ Interested in a paid placement to support development? Email [mail@termix.site](
 
 ## Support
 
-Bugs and ideas for this plugin go in this repo's [issues](../../issues). Problems with Termix itself go in the [Termix repo](https://github.com/Termix-SSH/Termix/issues/new/choose), and questions about building plugins can go in the [Discord](https://discord.gg/jVQGdvHDrf) server.
+Found a bug in this template or have an idea? Open an issue in this repo: [report a bug](https://github.com/Termix-SSH/Termix-Plugin-Template/issues/new?template=bug_report.yml) or [request a feature](https://github.com/Termix-SSH/Termix-Plugin-Template/issues/new?template=feature_request.yml).
+
+Problems with Termix itself (login, hosts, credentials, sharing, sync) go in the [Termix repo](https://github.com/Termix-SSH/Termix/issues/new/choose). Not sure where it goes? Open it there and it will be moved.
+
+Please be as detailed as possible, preferably in English. For questions about building plugins, join the [Discord](https://discord.gg/jVQGdvHDrf) server.
 
 <br />
 

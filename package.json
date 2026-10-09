@@ -6,11 +6,11 @@
   "scripts": {
     "build": "termix-plugin build",
     "test": "termix-plugin test",
+    "typecheck": "tsc -p .",
     "validate": "termix-plugin validate",
     "migrations": "termix-plugin migrations",
     "pack": "termix-plugin pack",
     "sign": "termix-plugin sign",
-    "typecheck": "tsc -p tsconfig.json",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky || true"
@@ -19,20 +19,26 @@
     "@commitlint/cli": "^21.2.2",
     "@commitlint/config-conventional": "^21.2.0",
     "@termix-ssh/plugin-sdk": "^1.0.4",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/react": "^16.3.3",
     "@types/better-sqlite3": "^9.6.0",
     "@types/express": "^5.0.6",
-    "@types/node": "^22.0.0",
+    "@types/node": "^26.2.0",
     "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
     "better-sqlite3": "^13.0.3",
-    "drizzle-orm": "^0.45.2",
-    "express": "^5.2.1",
     "husky": "^9.1.7",
     "jsdom": "^30.0.1",
     "lint-staged": "^17.2.0",
     "prettier": "3.9.9",
-    "react": "^19.2.8",
     "typescript": "~6.0.3",
     "vitest": "^4.1.11"
+  },
+  "peerDependencies": {
+    "@termix-ssh/plugin-sdk": "^1.0.4",
+    "drizzle-orm": "^0.45.2",
+    "express": "^5.2.1",
+    "react": "^19.2.8"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,mjs,cjs,json,css,md}": [

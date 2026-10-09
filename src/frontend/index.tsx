@@ -58,8 +58,13 @@ function createTab(app: TermixApp) {
     const add = async (event: FormEvent) => {
       event.preventDefault();
       if (!draft.trim()) return;
-      await app.api.post("/notes", { text: draft });
-      setDraft("");
+      try {
+        await app.api.post("/notes", { text: draft });
+        setDraft("");
+      } catch {
+        setFailed(true);
+        return;
+      }
       await load();
     };
 
@@ -100,6 +105,7 @@ export function activate(app: TermixApp): void {
     icon: HandIcon,
     titleKey: "tab.title",
     kind: "tab",
+    permission: "use",
   });
   app.registerTab(TAB_ID, createTab(app), {
     icon: HandIcon,
