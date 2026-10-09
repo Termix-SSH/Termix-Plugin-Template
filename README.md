@@ -23,7 +23,7 @@
 - An admin setting
 - A table with migrations for SQLite, PostgreSQL and MySQL
 - Backend and frontend tests
-- A release workflow that builds, signs and publishes to the [Termix Registry](https://github.com/Termix-SSH/Termix-Registry)
+- A release workflow that builds and publishes your plugin as a GitHub release, ready to submit to the [community registry](https://github.com/Termix-SSH/Termix-Registry)
 
 <br />
 
@@ -70,6 +70,15 @@ Run the **Release** workflow by hand from the dev branch:
 - **stable** releases `X.Y.Z`, merges the dev branch into `main`, deletes the dev branch and removes that version's beta releases. Add a `## X.Y.Z` section to `CHANGELOG.md` first, it becomes the release notes.
 - **overwrite** releases the manifest version again from the current commit, replacing its files.
 - **dry-run** builds and packs without publishing anything.
+
+No secrets are needed. The workflow records GitHub build provenance for the `.tmxplug` so the community registry can check where it was built. If a dev branch changes files in `.github/workflows`, add a `TERMIX_PAT` secret (a token with `repo` and `workflow` scopes) so the release can push it to `main`.
+
+## Submitting to the community registry
+
+Once a version is released, you can submit it to the [Termix community registry](https://github.com/Termix-SSH/Termix-Registry). The Release run's summary shows the `sha256` to put in your submission. Every version is reviewed by a person before it is listed. See the [guide](https://docs.termix.site/develop/community-registry).
+
+> [!NOTE]
+> Termix can't install community plugins yet. That comes in a later update. Submissions are open now so your plugin is listed when it ships. Until then, people can install it from a `.tmxplug` file with plugin developer mode on.
 
 ## Sponsors
 

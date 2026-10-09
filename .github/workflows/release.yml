@@ -27,6 +27,10 @@ on:
 
 permissions:
   contents: write
+  # Build provenance, so the community registry can check where the file
+  # was built.
+  id-token: write
+  attestations: write
 
 jobs:
   release:
