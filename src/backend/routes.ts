@@ -69,6 +69,8 @@ export function registerRoutes(
     const db = await client();
     // No returning(): MySQL does not support it.
     await db.insert(notesTable).values({ userId: actor(), text });
+    // SQLite only reaches disk when asked.
+    await ctx.db.persist();
     res.status(201).json({ success: true });
   });
 }

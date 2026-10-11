@@ -56,7 +56,9 @@ You need Node 24 and a Termix server you are an admin on. The full guide is at [
    npm run build
    ```
 
-7. Write your docs in `docs/`. `docs/index.md` is the page people see first. Settings, permissions, environment variables and the API reference are added for you from `manifest.json` and the `@openapi` comments on your routes.
+7. Using an AI coding tool? It reads `AGENTS.md` (or `CLAUDE.md`), which points it to the full plugin guide that ships with the SDK. Keep the About this plugin section in `AGENTS.md` up to date.
+
+8. Write your docs in `docs/`. `docs/index.md` is the page people see first. Settings, permissions, environment variables and the API reference are added for you from `manifest.json` and the `@openapi` comments on your routes.
 
 When you change a table in `src/backend/tables.ts`, run `npm run migrations` to write the SQLite, PostgreSQL and MySQL migrations. `npm run pack` writes `<id>-<version>.tmxplug` of the built plugin, which you can install from a file in the Plugins tab while developer mode is on.
 
