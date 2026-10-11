@@ -31,7 +31,7 @@
 
 You need Node 24 and a Termix server you are an admin on. The full guide is at [docs.termix.site/develop](https://docs.termix.site/develop).
 
-1. Click **Use this template** on GitHub to make your own repo, then clone it.
+1. Click Use this template on GitHub to make your own repo, then clone it.
 2. In `manifest.json`, change `id`, `name`, `description`, `author`, `repository` and `docs`. The id is lowercase with dashes, like `my-plugin`. Then search the repo for `hello-world`, `hello_world` and `Hello World` and rename them to match: `package.json`, `locales/en.json`, the index name in `src/backend/tables.ts`, the API paths in `src/backend/routes.ts`, the tab id in `src/frontend/index.tsx` and the tests.
 3. Install the packages, then delete `migrations/` and write it again for your id:
 
@@ -40,7 +40,7 @@ You need Node 24 and a Termix server you are an admin on. The full guide is at [
    npm run migrations
    ```
 
-4. In Termix, open **Settings**, then **General**, and turn on **Plugin developer mode**. Then make an API key under **Settings**, **API keys**.
+4. In Termix, open Settings, then General, and turn on Plugin developer mode. Then make an API key under Settings, API keys.
 5. Build and install the plugin on your server. It rebuilds and reinstalls every time you save a file:
 
    ```bash
@@ -64,7 +64,7 @@ When you change a table in `src/backend/tables.ts`, run `npm run migrations` to 
 
 Work happens on a `dev-X.Y.Z` branch made from `main`, named after the version it will ship as. `main` only changes when a release merges a dev branch into it.
 
-Run the **Release** workflow by hand from the dev branch:
+Run the Release workflow by hand from the dev branch:
 
 - **beta** publishes `X.Y.Z-beta.N` (N counts up on its own). Termix only offers it to people who turned on Beta versions for this plugin. Run it as often as you like.
 - **stable** releases `X.Y.Z`, merges the dev branch into `main`, deletes the dev branch and removes that version's beta releases. Add a `## X.Y.Z` section to `CHANGELOG.md` first, it becomes the release notes.
@@ -77,7 +77,7 @@ No secrets are needed. The workflow records GitHub build provenance for the `.tm
 
 Once a version is released, you can submit it to the [Termix community registry](https://github.com/Termix-SSH/Termix-Registry). The Release run's summary shows the `sha256` to put in your submission. Every version is reviewed by a person before it is listed. See the [guide](https://docs.termix.site/develop/community-registry).
 
-Termix can't install community plugins yet. That comes in a later update. Submissions are open now so your plugin is listed when it ships. Until then, people can install it from a `.tmxplug` file with plugin developer mode on.
+Once it is listed, admins who turn on the community registry in Plugins, Registries can install it from Browse.
 
 ## Sponsors
 
