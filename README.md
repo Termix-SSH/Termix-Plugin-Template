@@ -68,10 +68,10 @@ Work happens on a `dev-X.Y.Z` branch made from `main`, named after the version i
 
 Run the Release workflow by hand from the dev branch:
 
-- **beta** publishes `X.Y.Z-beta.N` (N counts up on its own). Termix only offers it to people who turned on Beta versions for this plugin. Run it as often as you like.
-- **stable** releases `X.Y.Z`, merges the dev branch into `main`, deletes the dev branch and removes that version's beta releases. Add a `## X.Y.Z` section to `CHANGELOG.md` first, it becomes the release notes.
-- **overwrite** releases the manifest version again from the current commit, replacing its files.
-- **dry-run** builds and packs without publishing anything.
+- beta publishes `X.Y.Z-beta.N` (N counts up on its own). Termix only offers it to people who turned on Beta versions for this plugin. Run it as often as you like.
+- stable releases `X.Y.Z`, merges the dev branch into `main`, deletes the dev branch and removes that version's beta releases. Add a `## X.Y.Z` section to `CHANGELOG.md` first, it becomes the release notes.
+- overwrite releases the manifest version again from the current commit, replacing its files.
+- dry-run builds and packs without publishing anything.
 
 No secrets are needed. The workflow records GitHub build provenance for the `.tmxplug` so the community registry can check where it was built. If a dev branch changes files in `.github/workflows`, add a `TERMIX_PAT` secret (a token with `repo` and `workflow` scopes) so the release can push it to `main`.
 
@@ -83,7 +83,7 @@ Once it is listed, admins who turn on the community registry in Plugins, Registr
 
 ## Sponsors
 
-Interested in a paid placement to support development? Email [mail@termix.site](mailto:mail@termix.site).
+For a paid sponsor spot, email [mail@termix.site](mailto:mail@termix.site).
 
 <!-- SPONSORS:START -->
 
@@ -127,14 +127,14 @@ Interested in a paid placement to support development? Email [mail@termix.site](
 
 ## Support
 
-Found a bug in this template or have an idea? Open an issue in this repo: [report a bug](https://github.com/Termix-SSH/Termix-Plugin-Template/issues/new?template=bug_report.yml) or [request a feature](https://github.com/Termix-SSH/Termix-Plugin-Template/issues/new?template=feature_request.yml).
+Bugs and ideas for the template go in this repo: [report a bug](https://github.com/Termix-SSH/Termix-Plugin-Template/issues/new?template=bug_report.yml) or [request a feature](https://github.com/Termix-SSH/Termix-Plugin-Template/issues/new?template=feature_request.yml).
 
 Problems with Termix itself (login, hosts, credentials, sharing, sync) go in the [Termix repo](https://github.com/Termix-SSH/Termix/issues/new/choose). Not sure where it goes? Open it there and it will be moved.
 
-Please be as detailed as possible, preferably in English. For questions about building plugins, join the [Discord](https://discord.gg/jVQGdvHDrf) server.
+Add as much detail as you can, in English if possible. For questions about building plugins, join the [Discord](https://discord.gg/jVQGdvHDrf) server.
 
 <br />
 
 ## License
 
-Distributed under the Apache License Version 2.0. See [LICENSE](LICENSE) for more information.
+Apache License 2.0. See [LICENSE](LICENSE).
