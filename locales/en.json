@@ -1,4 +1,8 @@
 {
+  "plugin": {
+    "name": "Hello World",
+    "description": "A minimal Termix plugin: one tab, one route, one setting and one table."
+  },
   "tab": {
     "title": "Hello World",
     "empty": "No notes yet.",
