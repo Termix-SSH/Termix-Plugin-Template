@@ -40,6 +40,13 @@ npm run format       # format with Prettier
 `npx termix-plugin dev --server <url> --key <tmx_...>` installs the plugin on a Termix server with
 developer mode on and reinstalls it on every save. Don't start it unless the user asks.
 
+## Layouts and themes
+
+A plugin can also be a layout (`contributes.layouts`, capability `ui:layout`, `app.registerLayout` in the
+frontend, shell state from `useShell()`) or add themes (`contributes.themes`, capability `ui:theme`, one CSS
+file per theme scoped under `.<id>`). A theme only plugin has no `src/`: just `manifest.json`, `themes/*.css`,
+`locales/` and a test that runs `validateThemeCss()`. The guide's "Layouts and themes" section has the rules.
+
 ## Done means
 
 - `npm test`, `npm run typecheck`, `npm run validate`, `npm run build` and `npm run format:check` pass
