@@ -23,5 +23,14 @@
         "description": "Shown at the top of the Hello World tab."
       }
     }
+  },
+  "operations": {
+    "count": {
+      "title": "Notes"
+    },
+    "add": {
+      "title": "Add a note",
+      "text": "Note"
+    }
   }
 }

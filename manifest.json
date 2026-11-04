@@ -14,14 +14,20 @@
   "features": [
     "A tab opened from the sidebar",
     "An admin setting",
-    "A table of greetings"
+    "A table of greetings",
+    "An action other parts of Termix can run"
   ],
   "env": [],
   "engine": {
-    "termix": ">=26.10.0",
-    "api": "^1.2"
+    "termix": ">=26.11.1-0",
+    "api": "^1.13"
   },
-  "capabilities": ["db:own", "network:serve", "ui:surface"],
+  "capabilities": [
+    "db:own",
+    "network:serve",
+    "ui:surface",
+    "operations:provide"
+  ],
   "contributes": {
     "tabs": [
       {
@@ -47,6 +53,46 @@
           "labelKey": "settings.admin.greeting.label",
           "descriptionKey": "settings.admin.greeting.description",
           "default": "Hello"
+        }
+      ]
+    },
+    "operations": {
+      "actions": [
+        {
+          "id": "hello-world.count-notes",
+          "titleKey": "operations.count.title",
+          "scope": "server",
+          "risk": "read",
+          "permission": "use",
+          "surfaces": {
+            "palette": false
+          }
+        },
+        {
+          "id": "hello-world.add-note",
+          "titleKey": "operations.add.title",
+          "icon": "Plus",
+          "scope": "server",
+          "risk": "change",
+          "permission": "use",
+          "dryRun": "describe",
+          "inputs": [
+            {
+              "key": "text",
+              "type": "string",
+              "labelKey": "operations.add.text",
+              "required": true
+            }
+          ]
+        }
+      ],
+      "signals": [
+        {
+          "id": "hello-world.notes",
+          "titleKey": "operations.count.title",
+          "read": "hello-world.count-notes",
+          "scope": "server",
+          "kind": "count"
         }
       ]
     }

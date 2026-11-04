@@ -40,6 +40,10 @@ npm run format       # format with Prettier
 `npx termix-plugin dev --server <url> --key <tmx_...>` installs the plugin on a Termix server with
 developer mode on and reinstalls it on every save. Don't start it unless the user asks.
 
+## Actions
+
+Declare what the plugin can do in `contributes.operations` and register each handler with `ctx.operations.register` (see `src/backend/operations.ts`). Every surface then finds it on its own: Operations Center, Automations, the CLI, the phone app and the command palette. Read the Operations section of PLUGIN-GUIDE.md before adding one.
+
 ## Layouts and themes
 
 A plugin can also be a layout (`contributes.layouts`, capability `ui:layout`, `app.registerLayout` in the
