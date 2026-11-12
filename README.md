@@ -24,6 +24,7 @@
 - A table with migrations for SQLite, PostgreSQL and MySQL
 - Backend and frontend tests
 - A release workflow that builds and publishes your plugin as a GitHub release, ready to submit to the [community registry](https://github.com/Termix-SSH/Termix-Registry)
+- A CI workflow that tests, builds and packs the plugin and lints its workflows with zizmor
 
 <br />
 
