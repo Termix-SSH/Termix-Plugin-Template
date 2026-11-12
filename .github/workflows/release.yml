@@ -25,17 +25,22 @@ on:
           - overwrite
           - dry-run
 
-permissions:
-  contents: write
-  # Build provenance, so the community registry can check where the file
-  # was built.
-  id-token: write
-  attestations: write
+permissions: {}
 
 jobs:
   release:
+    permissions:
+      contents: write
+      # Build provenance, so the community registry can check where the file
+      # was built.
+      id-token: write
+      attestations: write
     uses: Termix-SSH/Termix-Registry/.github/workflows/plugin-release.yml@main
     with:
       channel: ${{ inputs.channel }}
       mode: ${{ inputs.mode }}
-    secrets: inherit
+    # Both optional: TERMIX_PAT to push workflow file changes to main,
+    # TERMIX_PLUGIN_SIGNING_KEY to also sign with your own key.
+    secrets:
+      TERMIX_PAT: ${{ secrets.TERMIX_PAT }}
+      TERMIX_PLUGIN_SIGNING_KEY: ${{ secrets.TERMIX_PLUGIN_SIGNING_KEY }}
