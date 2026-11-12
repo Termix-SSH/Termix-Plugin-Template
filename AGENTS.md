@@ -56,6 +56,8 @@ file per theme scoped under `.<id>`). A theme only plugin has no `src/`: just `m
 - `npm test`, `npm run typecheck`, `npm run validate`, `npm run build` and `npm run format:check` pass
 - `npx termix-plugin migrations --check` passes
 - New UI text is in `locales/en.json`, new routes have an `@openapi` block and a test
+- New routes and sockets have an entry in `authz.json` (the guide's "Authorization table" section)
+- New routes and sockets have an entry in `authz.json` (see the guide's "Authorization table")
 - `docs/` and the section below still match what the plugin does
 - User facing changes are in `CHANGELOG.md` under the version they ship in
 

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Termix-SSH/Termix/main/scripts/authz/authz.schema.json",
+  "seed": [
+    {
+      "as": "owner",
+      "method": "POST",
+      "path": "/plugin-api/hello-world/notes",
+      "body": { "text": "authz-own-note" }
+    }
+  ],
+  "routes": {
+    "GET /plugin-api/hello-world/notes": {
+      "access": "user",
+      "permission": "hello-world.use",
+      "filtered": true,
+      "note": "Lists only the caller's own notes"
+    },
+    "POST /plugin-api/hello-world/notes": {
+      "access": "user",
+      "permission": "hello-world.use",
+      "body": { "text": "authz" }
+    }
+  }
+}
