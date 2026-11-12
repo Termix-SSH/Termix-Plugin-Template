@@ -2,7 +2,7 @@ name: Release
 
 # Run by hand from a dev-X.Y.Z branch. stable releases X.Y.Z and merges the
 # branch into main; beta publishes X.Y.Z-beta.N for plugins on the beta
-# channel. overwrite releases the manifest version again from this commit.
+# channel. A release can't change once published, so a fix is a new version.
 
 on:
   workflow_dispatch:
@@ -16,13 +16,12 @@ on:
           - stable
           - beta
       mode:
-        description: "release, overwrite (stable only) or dry-run"
+        description: "release or dry-run"
         required: true
         default: release
         type: choice
         options:
           - release
-          - overwrite
           - dry-run
 
 permissions: {}

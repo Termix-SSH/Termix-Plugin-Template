@@ -72,8 +72,9 @@ Run the Release workflow by hand from the dev branch:
 
 - beta publishes `X.Y.Z-beta.N` (N counts up on its own). Termix only offers it to people who turned on Beta versions for this plugin. Run it as often as you like.
 - stable releases `X.Y.Z`, merges the dev branch into `main`, deletes the dev branch and removes that version's beta releases. Add a `## X.Y.Z` section to `CHANGELOG.md` first, it becomes the release notes.
-- overwrite releases the manifest version again from the current commit, replacing its files.
 - dry-run builds and packs without publishing anything.
+
+Releases are immutable. A release is made as a draft, gets its files, then is published, and after that its tag and files can never change. A version that already has a release is refused, so a fix always ships as a new version. Turn on immutable releases in your repo settings (Settings, General, Releases).
 
 No secrets are needed. The workflow records GitHub build provenance for the `.tmxplug` so the community registry can check where it was built. If a dev branch changes files in `.github/workflows`, add a `TERMIX_PAT` secret (a token with `repo` and `workflow` scopes) so the release can push it to `main`.
 
