@@ -6,6 +6,10 @@
 
 <p>A starter template for building your own Termix plugin</p>
 
+<p>
+  <a href="https://scorecard.dev/viewer/?uri=github.com/Termix-SSH/Termix-Plugin-Template"><img alt="OpenSSF Scorecard" src="https://img.shields.io/ossf-scorecard/github.com/Termix-SSH/Termix-Plugin-Template?label=OpenSSF%20Scorecard&style=flat&color=F39044&labelColor=1a1a1a" /></a>
+</p>
+
 </div>
 
 <br />
@@ -25,6 +29,7 @@
 - Backend and frontend tests
 - A release workflow that builds and publishes your plugin as a GitHub release, ready to submit to the [community registry](https://github.com/Termix-SSH/Termix-Registry)
 - A CI workflow that checks the lockfile and known vulnerabilities, tests, builds and packs the plugin and lints its workflows with zizmor
+- An OpenSSF Scorecard workflow that rates your repo's security practices each week and shows the result on [scorecard.dev](https://scorecard.dev/). Change the badge link at the top of this README to your repo
 - A Dependabot config that keeps npm packages and actions current
 
 <br />
