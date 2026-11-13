@@ -40,6 +40,15 @@ npm run format       # format with Prettier
 `npx termix-plugin dev --server <url> --key <tmx_...>` installs the plugin on a Termix server with
 developer mode on and reinstalls it on every save. Don't start it unless the user asks.
 
+## The plugin process
+
+The backend runs in its own Node process (plugin API 2). It reaches Termix only through `ctx`, can read only
+its own folder and opens no sockets or child processes unless a capability grants it. List every
+`ctx.schedule.every` id, `ctx.events.on` topic and `ctx.registry.provide` key in the manifest's `sandbox`
+block, await `services.get` and `registry.consume`, and pass only plain data to `ctx`. The tests run with
+`createMockCtx({ sandbox: true })`, which applies the same rules. The guide's "The plugin process" section
+has the details.
+
 ## Actions
 
 Declare what the plugin can do in `contributes.operations` and register each handler with `ctx.operations.register` (see `src/backend/operations.ts`). Every surface then finds it on its own: Operations Center, Automations, the CLI, the phone app and the command palette. Read the Operations section of PLUGIN-GUIDE.md before adding one.
@@ -57,7 +66,6 @@ file per theme scoped under `.<id>`). A theme only plugin has no `src/`: just `m
 - `npx termix-plugin migrations --check` passes
 - New UI text is in `locales/en.json`, new routes have an `@openapi` block and a test
 - New routes and sockets have an entry in `authz.json` (the guide's "Authorization table" section)
-- New routes and sockets have an entry in `authz.json` (see the guide's "Authorization table")
 - `docs/` and the section below still match what the plugin does
 - User facing changes are in `CHANGELOG.md` under the version they ship in
 

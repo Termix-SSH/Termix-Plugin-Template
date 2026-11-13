@@ -19,8 +19,8 @@
   ],
   "env": [],
   "engine": {
-    "termix": ">=26.11.1-0",
-    "api": "^1.13"
+    "termix": ">=26.11.2-0",
+    "api": "^2.0.0"
   },
   "capabilities": [
     "db:own",
@@ -28,6 +28,10 @@
     "ui:surface",
     "operations:provide"
   ],
+  "sandbox": {
+    "schedules": [],
+    "events": []
+  },
   "contributes": {
     "tabs": [
       {
