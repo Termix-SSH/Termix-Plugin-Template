@@ -49,6 +49,10 @@ block, await `services.get` and `registry.consume`, and pass only plain data to 
 `createMockCtx({ sandbox: true })`, which applies the same rules. The guide's "The plugin process" section
 has the details.
 
+The frontend runs in a sandboxed frame that reaches only its own routes. `tests/frontend/frame.test.ts`
+(`checkFrameApp`) and `frame-views.test.ts` (`checkFrameViews`) fail when the plugin registers or reads
+something a frame can't. Keep both; the guide's "Frames" section has the rules.
+
 ## Actions
 
 Declare what the plugin can do in `contributes.operations` and register each handler with `ctx.operations.register` (see `src/backend/operations.ts`). Every surface then finds it on its own: Operations Center, Automations, the CLI, the phone app and the command palette. Read the Operations section of PLUGIN-GUIDE.md before adding one.

@@ -1,3 +1,4 @@
+import { Hand } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react";
 import {
   useTranslation,
@@ -11,23 +12,6 @@ interface Note {
   id: number;
   text: string;
   createdAt: string;
-}
-
-function HandIcon(props: { className?: string }) {
-  return (
-    <svg
-      {...props}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8" />
-      <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-6-2.4l-3.6-3.6a2 2 0 0 1 2.8-2.8L7 15" />
-    </svg>
-  );
 }
 
 function createTab(app: TermixApp) {
@@ -102,13 +86,13 @@ function createTab(app: TermixApp) {
 export function activate(app: TermixApp): void {
   app.registerRailItem({
     id: TAB_ID,
-    icon: HandIcon,
+    icon: Hand,
     titleKey: "tab.title",
     kind: "tab",
     permission: "use",
   });
   app.registerTab(TAB_ID, createTab(app), {
-    icon: HandIcon,
+    icon: Hand,
     titleKey: "tab.title",
     singleton: true,
     hostless: true,

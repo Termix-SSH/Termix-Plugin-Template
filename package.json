@@ -31,6 +31,7 @@
     "i18next": "^26.4.2",
     "jsdom": "^30.0.1",
     "lint-staged": "^17.2.0",
+    "lucide-react": "^1.60.0",
     "prettier": "3.9.9",
     "react-i18next": "^17.0.16",
     "sonner": "^2.0.8",
